@@ -18,7 +18,8 @@ public class CollectionTestSuite {
 
 
 
-    public OddNumbersExterminator oddNumbersExterminator;
+    OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
+
 
     @DisplayName("Testowanie, czy klasa zachowuje się poprawnie, gdy jest pusta")
     @Test
