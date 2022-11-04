@@ -12,6 +12,7 @@ public class WeatherForecast {
         this.temperatures = temperatures;
     }
 
+
     public Map<String, Double> calculateForecast(){
         Map<String, Double> resultMap = new HashMap<>();
 
