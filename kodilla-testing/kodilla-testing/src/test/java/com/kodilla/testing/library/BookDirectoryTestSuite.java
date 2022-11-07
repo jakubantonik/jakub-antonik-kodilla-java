@@ -1,6 +1,7 @@
 package com.kodilla.testing.library;
 
 import net.bytebuddy.NamingStrategy;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -90,10 +91,15 @@ public class BookDirectoryTestSuite {
     @Test
     void testListBooksInHandsOf0Books(){
         //Given
+        List<Book>list0Books = new ArrayList<>();
+        when(libraryDatabaseMock.listBooksInHandsOf(any(LibraryUser.class))).thenReturn(list0Books);
 
         //When
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book>resultList = bookLibrary.listBooksInHandsOf(any(LibraryUser.class));
 
         //Then
+        Assertions.assertEquals(0,resultList.size());
 
          }
     @Test

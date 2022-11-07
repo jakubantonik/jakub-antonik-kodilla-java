@@ -59,7 +59,7 @@ public class CountingStatistics {
 
     public double calculateAverageOfCommentsPerPost(){
         if (numberOfPosts>0) {
-            return numberOfComments / numberOfPosts;
+            return (double) numberOfComments / numberOfPosts;
         } else {
             return 0;
         }
