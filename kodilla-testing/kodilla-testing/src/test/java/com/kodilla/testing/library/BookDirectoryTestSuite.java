@@ -56,13 +56,16 @@ public class BookDirectoryTestSuite {
         List<Book> resultListOf0Books = new ArrayList<Book>();
         List<Book> resultListOf15Books = generateListOfNBooks(15);
         List<Book> resultListOf40Books = generateListOfNBooks(40);
-        when(libraryDatabaseMock.listBooksWithCondition(anyString())).thenReturn(resultListOf15Books);
-        when(libraryDatabaseMock.listBooksWithCondition("ZeroBooks")).thenReturn(resultListOf0Books);
-        when(libraryDatabaseMock.listBooksWithCondition("FortyBooks")).thenReturn(resultListOf40Books);
+        when(libraryDatabaseMock.listBooksWithCondition(anyString()))
+                .thenReturn(resultListOf15Books);
+        when(libraryDatabaseMock.listBooksWithCondition("ZeroBooks"))
+                .thenReturn(resultListOf0Books);
+        when(libraryDatabaseMock.listBooksWithCondition("FortyBooks"))
+                .thenReturn(resultListOf40Books);
 
         //When
         List<Book> theListOfBooks0 = bookLibrary.listBooksWithCondidtion("ZeroBooks");
-        List<Book> theListOfBooks15 = bookLibrary.listBooksWithCondidtion("An");
+        List<Book> theListOfBooks15 = bookLibrary.listBooksWithCondidtion("Any title");
         List<Book> theListOfBooks40 = bookLibrary.listBooksWithCondidtion("FortyBooks");
 
         //Then
@@ -83,6 +86,31 @@ public class BookDirectoryTestSuite {
         //Then
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
+    }
+    @Test
+    void testListBooksInHandsOf0Books(){
+        //Given
+
+        //When
+
+        //Then
+
+         }
+    @Test
+    void testListBooksInHandsOf1Book(){
+        //Given
+
+        //When
+
+        //Then
+    }
+    @Test
+    void testListBooksInHandsOf5Books(){
+        //Given
+
+        //When
+
+        //Then
     }
 
 }
