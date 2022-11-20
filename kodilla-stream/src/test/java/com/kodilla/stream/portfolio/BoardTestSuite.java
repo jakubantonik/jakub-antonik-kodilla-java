@@ -1,10 +1,12 @@
 package com.kodilla.stream.portfolio;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.*;
@@ -153,14 +155,18 @@ public class BoardTestSuite {
         var average = project.getTaskLists().stream()
                 .filter(inProgressTaskLists::contains)
                 .flatMap(taskList -> taskList.getTasks().stream())
-                .map(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
-                .count();
+                .map(taskList -> ChronoUnit.DAYS.between(taskList.getCreated(), LocalDate.now()))
+                .mapToDouble(taskList -> taskList)
+                        .average().getAsDouble();
+
 
 
 
 
         //Then
         System.out.println(average);
+        Assertions.assertEquals(10, average);
+
 
 
     }
