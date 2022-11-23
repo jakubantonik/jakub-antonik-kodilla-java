@@ -1,6 +1,5 @@
 package com.kodilla.exception.test;
 
-import org.jetbrains.annotations.NotNull;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +25,6 @@ public class SearchingFlights {
         Flight flight = new Flight("berlin", "lodz");
 
         try {
-            System.out.println("asd");
             searchingFlights.findFlight(flight);
         } catch (RouteNotFoundException e){
             System.out.println("Error: " + e);
