@@ -3,7 +3,7 @@ package com.kodilla.good.patterns.challenges.food2door;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GlutenFreeShop implements RealizeOrder{
+public class GlutenFreeShop{
     public List<Order> retrieve(){
         List<Order> orderGlutenFreeShopList = new ArrayList<>();
 
@@ -21,10 +21,5 @@ public class GlutenFreeShop implements RealizeOrder{
     }
 
 
-    @Override
-    public boolean process(Order order) {
-        System.out.println("Order to:" + order.getCustomer() + " number: " + order.getOrderNumber()
-                + " : " + order.getProduct() + " is sending.");
-        return true;
-    }
+
 }

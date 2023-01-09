@@ -3,7 +3,7 @@ package com.kodilla.good.patterns.challenges.food2door;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HealthyShop implements RealizeOrder {
+public class HealthyShop{
     public List<Order> retrieve(){
         List<Order>orderHealthyShopList = new ArrayList<>();
 
@@ -21,12 +21,5 @@ public class HealthyShop implements RealizeOrder {
         return orderHealthyShopList;
     }
 
-
-    @Override
-    public boolean process(Order order) {
-        System.out.println("Order to:" + order.getCustomer() + " number: " + order.getOrderNumber()
-                + " : " + order.getProduct() + " is sending.");
-        return true;
-    }
 
 }

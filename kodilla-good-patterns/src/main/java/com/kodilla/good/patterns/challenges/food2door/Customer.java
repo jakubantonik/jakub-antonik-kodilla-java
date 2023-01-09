@@ -16,4 +16,7 @@ public class Customer {
     public String getAddress() {
         return address;
     }
+    public String toString(){
+        return " " + getName() + ", adress: " + getAddress() + "\n";
+    }
 }
