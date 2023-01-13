@@ -1,8 +1,6 @@
 package com.kodilla.good.patterns.challenges.flight;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class FlightService {
 
@@ -18,40 +16,29 @@ public class FlightService {
         flightList.add(new SearchingFlights("Łódź", "Rzeszów"));
         flightList.add(new SearchingFlights("Kraków", "Gdańsk"));
         flightList.add(new SearchingFlights("Gdańsk", "Warszwa"));
-        flightList.add(new SearchingFlights("Warszawa", "Rzeszów"));
 
         return flightList;
-
     }
 
-    public List<SearchingFlights> availableFlightsFrom(String flightFrom){
-        return flightList.stream()
-                .filter(flight -> flight.getFlightFrom().equals(flightFrom))
-                .collect(Collectors.toList());
+    public Optional<SearchingFlights> availableFlightsFrom (String fromCity){
+        return flightList().stream()
+                .filter(flight -> flight.getFlightFrom().equals(fromCity))
+                .findFirst();
     }
 
-    public List<SearchingFlights> availableFlightsTo(String flightTo){
-        return flightList.stream()
-                .filter(flights -> flights.getFlightTo().equals(flightTo))
-                .collect(Collectors.toList());
+    public Optional<SearchingFlights> availableFlightsTo(String toCity){
+        return flightList().stream()
+                .filter(flights -> flights.getFlightTo().equals(toCity))
+                .findFirst();
     }
 
-    public List<SearchingFlights> availableFlightsBetweenCities(String flightFrom, String flightBy, String flightTo){
-        SearchingFlights flightFromCity = flightList.stream()
-                .filter(flight -> flight.getFlightFrom().equals(flightFrom))
-                .filter(flight -> flight.getFlightTo().equals(flightBy))
-                .findAny().get();
-
-        SearchingFlights flightToCity = flightList.stream()
-                .filter(flight -> flight.getFlightFrom().equals(flightBy))
-                .filter(flight -> flight.getFlightTo().equals(flightTo))
-                .findAny().get();
-
-        List<SearchingFlights> searchingFlights = new ArrayList<>();
-        searchingFlights.add(flightFromCity);
-        searchingFlights.add(flightToCity);
-
-        return searchingFlights;
+    public Optional<SearchingFlights> availableFlightsBetweenCities(String fromCity, String byCity, String toCity){
+        return flightList().stream()
+                .filter(f -> f.getFlightFrom().equals(fromCity))
+                .filter(f -> f.getFlightTo().equals(byCity))
+                .filter(f -> f.getFlightFrom().equals(byCity))
+                .filter(f -> f.getFlightTo().equals(toCity))
+                .findFirst();
     }
 
 }

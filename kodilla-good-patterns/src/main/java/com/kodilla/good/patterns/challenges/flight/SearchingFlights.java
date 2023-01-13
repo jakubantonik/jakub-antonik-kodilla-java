@@ -3,8 +3,8 @@ package com.kodilla.good.patterns.challenges.flight;
 import java.util.Objects;
 
 public class SearchingFlights {
-    private String flightFrom;
-    private String flightTo;
+    private final String flightFrom;
+    private final String flightTo;
 
     public SearchingFlights(String flightFrom, String flightTo) {
         this.flightFrom = flightFrom;
@@ -21,8 +21,8 @@ public class SearchingFlights {
     }
 
     @Override
-    public String toString(){
-        return "Flight from: " + flightFrom + " flight to: " + flightTo;
+    public String toString() {
+        return "Flight from: " + flightFrom + " Flight to: " + flightTo;
     }
 
     @Override
