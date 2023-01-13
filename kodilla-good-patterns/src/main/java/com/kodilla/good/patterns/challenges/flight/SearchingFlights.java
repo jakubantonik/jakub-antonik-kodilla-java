@@ -22,7 +22,7 @@ public class SearchingFlights {
 
     @Override
     public String toString() {
-        return "Flight from: " + flightFrom + " Flight to: " + flightTo;
+        return "Flight from: " + flightFrom + " - flight to: " + flightTo;
     }
 
     @Override

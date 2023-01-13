@@ -8,12 +8,12 @@ public class FlightProcessor {
         FlightService flightService = new FlightService();
 
         Optional<SearchingFlights> travelFrom = flightService.availableFlightsFrom("Kraków");
-        System.out.println("Available travel to: " + travelFrom);
+        travelFrom.ifPresent(searchingFlights -> System.out.println("Available travel: " + searchingFlights));
 
         Optional<SearchingFlights> travelTo = flightService.availableFlightsTo("Łódź");
-        System.out.println("Available travel to: " + travelTo);
+        travelTo.ifPresent(searchingFlights -> System.out.println("Available travel: " + searchingFlights));
 
-        Optional<SearchingFlights> travelFromCityToCity = flightService.availableFlightsBetweenCities("Kraków", "Rzeszów",  "Łódź");
-        System.out.println("Available travel to: " + travelFromCityToCity);
+        Optional<SearchingFlights> travelFromCityToCity = flightService.availableFlightsBetweenCities("Kraków", "Rzeszów");
+        travelFromCityToCity.ifPresent(searchingFlights -> System.out.println("Available travel: " + searchingFlights));
     }
 }

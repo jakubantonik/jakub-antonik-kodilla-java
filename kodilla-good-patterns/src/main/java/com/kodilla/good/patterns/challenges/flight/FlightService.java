@@ -32,11 +32,9 @@ public class FlightService {
                 .findFirst();
     }
 
-    public Optional<SearchingFlights> availableFlightsBetweenCities(String fromCity, String byCity, String toCity){
+    public Optional<SearchingFlights> availableFlightsBetweenCities(String fromCity, String toCity){
         return flightList().stream()
                 .filter(f -> f.getFlightFrom().equals(fromCity))
-                .filter(f -> f.getFlightTo().equals(byCity))
-                .filter(f -> f.getFlightFrom().equals(byCity))
                 .filter(f -> f.getFlightTo().equals(toCity))
                 .findFirst();
     }
