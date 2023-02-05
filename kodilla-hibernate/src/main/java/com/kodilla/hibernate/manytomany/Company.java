@@ -6,6 +6,12 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.searchCompanyWithMatchingLetters",
+        query = "SELECT * FROM COMPANIES " +
+                "WHERE LEFT(company_name, 3) = :LETTERS",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

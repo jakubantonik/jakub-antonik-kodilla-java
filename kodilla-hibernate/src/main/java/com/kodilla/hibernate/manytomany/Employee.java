@@ -7,6 +7,10 @@ import org.w3c.dom.stylesheets.LinkStyle;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedQuery(
+        name = "Empoyee.searchEmployeeByLastname",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
